@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-f <psilva-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 14:03:54 by psilva-f          #+#    #+#             */
-/*   Updated: 2020/12/01 00:55:51 by psilva-f         ###   ########.fr       */
+/*   Created: 2020/12/01 03:39:04 by psilva-f          #+#    #+#             */
+/*   Updated: 2020/12/01 03:41:53 by psilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <unistd.h>
-
-void	ft_putchar(char c)
+void		ft_sort_int_tab(int *tab, int size)
 {
-	write(1, &c, 1);
-}
+	int i;
+	int value;
 
-void	ft_putnbr(int nb)
-{
-	unsigned  int nbr_unsigned;
-	
-	nbr_unsigned = nb;
-	if (nb < 0)
+	i = 0;
+	--size;
+	while (i < size)
 	{
-		ft_putchar('-');
-		nbr_unsigned = nb * (-1);
-	}
-	if (nbr_unsigned >= 0 && nbr_unsigned <= 9)
-		ft_putchar(nb + 48);
-	else if (nbr_unsigned > 9)
-	{
-		ft_putnbr(nbr_unsigned / 10);
-		ft_putnbr(nbr_unsigned % 10);
-	}
-}
+		if (tab[i] > tab[i + 1])
+		{
+			value = tab[i + 1];
+			tab[i + 1] = tab[i];
+			tab[i] = value;
+			i = 0;
+		}
+		else
+		i++;
+}		

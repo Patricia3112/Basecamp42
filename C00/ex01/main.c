@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-f <psilva-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 14:03:54 by psilva-f          #+#    #+#             */
-/*   Updated: 2020/12/01 00:55:51 by psilva-f         ###   ########.fr       */
+/*   Created: 2020/11/20 21:33:20 by psilva-f          #+#    #+#             */
+/*   Updated: 2020/11/28 04:42:02 by psilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <unistd.h>
 
-void	ft_putchar(char c)
+
+void ft_print_alphabet(void);
+int main(void)
 {
-	write(1, &c, 1);
+	 ft_print_alphabet();
+	 write(1, "\n", 1);
+	 return(0);
 }
 
-void	ft_putnbr(int nb)
-{
-	unsigned  int nbr_unsigned;
-	
-	nbr_unsigned = nb;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nbr_unsigned = nb * (-1);
-	}
-	if (nbr_unsigned >= 0 && nbr_unsigned <= 9)
-		ft_putchar(nb + 48);
-	else if (nbr_unsigned > 9)
-	{
-		ft_putnbr(nbr_unsigned / 10);
-		ft_putnbr(nbr_unsigned % 10);
-	}
-}
